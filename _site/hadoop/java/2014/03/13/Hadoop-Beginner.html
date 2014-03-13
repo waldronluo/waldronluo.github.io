@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Waldronluo's Blog</title>
+        <title>Hadoop Beginner --- How to compile Hadoop Application</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
@@ -24,17 +24,17 @@
             <a class="extra" href="/">home</a>
           </div>
 
-          <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    
-      <li><span>13 Mar 2014</span> &raquo; <a href="/hadoop/java/2014/03/13/Hadoop-Beginner.html">Hadoop Beginner --- How to compile Hadoop Application</a></li>
-    
-      <li><span>25 Feb 2014</span> &raquo; <a href="/jekyll/update/2014/02/25/welcome-to-jekyll.html">Welcome to Jekyll!</a></li>
-    
-      <li><span>26 Feb 2014</span> &raquo; <a href="/2014/02/26/SVM-Classifier%281%29.html">[Machine Learning] 支持向量机介绍 (1)</a></li>
-    
-  </ul>
+          <h2>Hadoop Beginner --- How to compile Hadoop Application</h2>
+<p class="meta">13 Mar 2014</p>
+
+<div class="post">
+<p>As a Hadoop freshman, as fresh as one night of playing, tried to compile and get some Hello World application to work. The code I get are from <a href="http://hadoopbook.com/">Hadoop: The Definitive Guide</a> as the tutorial code of this cook book.<br />
+For the charpter 2 code, all-night testing still could not get the cpp code into work. For the java code, I finally successfully compile and it by:<br />
+<code>javac -classpath `hadoop classpath` your/main/java/file.java</code><br />
+And run it by:<br />
+<code>export HADOOP_CLASSPATH=your/built/class/path/ &amp;&amp; hadoop yourJavaClass</code></p>
+
+
 </div>
 
 
