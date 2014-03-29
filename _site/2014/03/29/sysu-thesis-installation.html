@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Begin to use sysuthesis template</title>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Import MathJax -->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49509757-1', 'waldronluo.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+
+    <div class="site">
+      <div class="header">
+        <h1 class="title"><a href="/">Waldronluo's Blog</a></h1>
+        <a class="extra" href="/">home</a>
+      </div>
+
+      <h2>Begin to use sysuthesis template</h2>
+<p class="meta">29 Mar 2014</p>
+
+<div class="post">
+<p>Thanks to <a href="https://github.com/zhibo/sysuthesis">zhibo’s sysu thesis template</a>, we can use tex in writing our graduation thesis.<br />
+I used the whole day in setting up the environment and contemplate to write my experience today. My system is Debian 7 of 64bit with gcc version 4.6.3.  </p>
+
+<h3 id="install-texlive">Install Texlive</h3>
+<p>We can download the fresh and the brand new Texlive from <a href="https://www.tug.org/texlive/">tug.org</a>. Then follow the <a href="https://www.tug.org/texlive/quickinstall.html">guide for linux user</a> to install the lovely but cumbersome Texlive. I chose to install it fully, and the choice took me roughly 2800 packages to download which is around 3.6G.  </p>
+
+<h3 id="get-the-template">Get the template</h3>
+<p>Download the <a href="https://github.com/zhibo/sysuthesis">template from Github</a>, then get into the bachelor/ folder and make. If you don’t have <em>make</em>, you should install it by <code>$ sudo apt-get install build-essential make</code>. This will prompt lots of errors. The one I met is the fonts [SIMKAI.TTF] and SIMSUN not found.</p>
+
+<h3 id="install-the-fonts">Install the fonts</h3>
+<p>Download the fonts that are missed. I download it from … Oh I did a bad thing in copying them directly from my Windows in <em>C:\Windows\Fonts</em>. I copied all them out (Because I do not wanna bother in selecting the fonts) to <em>/usr/share/fonts/winfonts/</em>. Notice that the <em>winfonts/</em> folder is not exist originally and you should create one.<br />
+Then we have those fonts in our <em>/usr/share/fonts/winfonts</em>, we should ensure they have the right permission. <code>$ sudo chmod 644 /usr/share/fonts/winfonts/*</code>. Then update the fonts by <code>$ sudo mkfontscale &amp;&amp; sudo mkfontdir &amp;&amp; sudo fc-cache -fv</code>.<br />
+But that was not enough. The fonts were reported to be ‘not found’. Actually, the ctex did not have the right name of these fonts in our specific system. Go to 
+<em>/usr/local/texlive/2013/texmf-dist/tex/latex/ctex/fontset/</em> and edit ctex-xecjk-winfonts.def. Replace the [SIMKAI.TTF]. The fonts of Kaiti can be seen by <code>$ fc-list :lang=zh-cn</code>, for example you will see<br />
+    /usr/share/fonts/winfonts/simkai.ttf: KaiTi,楷体:style=Regular,…<br />
+Then use the first English word, KaiTi, to replace the [SIMKAI.TTF]. Note that there is more than one place you should replace. Replace all the missing fonts that are reported as ‘not found’. Now you can go back to your template folder and <code>$ make</code> again. Passed!</p>
+
+
+</div>
+
+
+      <div class="footer">
+        <div class="contact">
+          <p>
+            Waldron Luo<br />
+            Student in SYSU<br />
+            luoweiq2@mail2.sysu.edu.cn
+          </p>
+        </div>
+        <div class="contact">
+          <p>
+            <a href="https://github.com/waldronluo">github.com/waldronluo</a><br />
+            <a href="http://cn.linkedin.com/pub/weiqiang-luo/80/1ba/6b6/">cn.linkedin.com/pub/weiqiang-luo</a><br />
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
